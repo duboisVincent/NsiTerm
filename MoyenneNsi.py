@@ -20,7 +20,6 @@ def MoyenneIndice(Liste):
 print("La moyenne de la liste est",MoyenneIndice(liste))
 
 k = 0
-Len = len(liste)
 while k != sum(liste):
     k = k + 1
     if k == sum(liste):
