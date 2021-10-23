@@ -1,0 +1,42 @@
+#Sujet_9
+def moyenne(l):
+    somme_notes = 0
+    numérateur = 0
+    for i in l:
+        note = i[0]
+        coef = i[1]
+        somme_notes = somme_notes + note * coef
+        numérateur = numérateur + coef
+    return somme_notes/numérateur
+print(moyenne([(15,2),(9,1),(12,3)]))
+"""NotaBene : il y a une erreur dans le sujet"""
+def pascal(n):
+    C= [[1]]
+    for k in range(1,n+1):
+        Ck = [1]
+        for i in range(1,k):
+            Ck.append(C[k-1][i-1]+C[k-1][i] )
+        Ck.append(1)
+        C.append(Ck)
+    return C
+print(pascal(4))
+#sujet_17
+def recherche_min(liste):
+    minimum = liste[0]
+    for x in liste:
+        if x < minimum :
+            minimum = x
+    return minimum
+print(recherche_min([7,2,5,9,17,]))
+
+def separe(liste):
+    i = 0
+    j = len(liste)-1
+    while i < j:
+        if liste[i] == 0:
+            i = i+1
+        else:
+            liste[i], liste[j] = liste[j], liste[i]
+            j = j-i
+    return liste
+print(separe([0,1,0,1,1,1,0,0,1]))
