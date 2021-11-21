@@ -15,32 +15,32 @@ class Personnage:
         if chance_desquive * 10 > self.esquive:
             if random.random() < 0.5:
                 nbPoint = 1
-                if proba_critique_effet > 0.9:
-                    nbPoint = nbPoint * 5
+                if proba_critique_effet > 0.8:
+                    nbPoint = nbPoint * 2
                     self.vie = self.vie - nbPoint
                     print("Attaque critique! " + self.nom + " à reçu " +str(nbPoint) + " dégat!")
-                    if proba_critique_effet > 0.8:
+                    if proba_critique_effet > 0.9:
                         self.effet = "saigné"
                         print("Oh non! "+ self.nom +" saigne abondament")
                 else:
                     self.vie = self.vie - nbPoint
                     print(self.nom + " à reçu " +str(nbPoint)+ " dégats!")
-                    if proba_critique_effet > 0.8:
+                    if proba_critique_effet > 0.9:
                         self.effet = "saigné"
                         print("Oh non! "+ self.nom +" saigne abondament")
             else:
                 nbPoint = 2
-                if proba_critique_effet > 0.9:
-                    nbPoint = nbPoint * 5
+                if proba_critique_effet > 0.8:
+                    nbPoint = nbPoint * 2
                     self.vie = self.vie - nbPoint
                     print("Attaque critique! " + self.nom + " à reçu " +str(nbPoint)+ " dégats!")
-                    if proba_critique_effet > 0.8:
+                    if proba_critique_effet > 0.9:
                         self.effet = "saigné"
                         print("Oh non! "+ self.nom +" saigne abondament")
                 else:
                     self.vie = self.vie - nbPoint
                     print(self.nom + " à reçu " +str(nbPoint)+ " dégats!")
-                    if proba_critique_effet > 0.8:
+                    if proba_critique_effet > 0.9:
                         self.effet = "saigné"
                         print("Oh non! "+ self.nom +" saigne abondament")
                     
@@ -51,6 +51,10 @@ class Personnage:
             
     def soin(self):
         valeur_soin = random.random()
+        valeur_fin_status = random.random()
+        if valeur_fin_status > 0.75:
+            self.status = ""
+            print(self.nom + " n'a plus d'effet de status")
         if valeur_soin > 0 and valeur_soin <=0.25:
             self.vie = self.vie + 1
             print(self.nom + " S'est soigné de 1 dégats")
@@ -64,7 +68,7 @@ class Personnage:
             self.vie = self.vie + 4
             print(self.nom + " S'est soigné de 4 dégats")
         
-bilbo = Personnage("Bilbo",12,12,1.5,"")
+bilbo = Personnage("Bilbo",25,25,1.5,"")
 gollum = Personnage("Gollum",17,17,1.7,"")
 frodon = Personnage("Frodon",20,20,1.5,"")
 araignee = Personnage("Araignée",6,6,1.1,"")
