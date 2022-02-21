@@ -64,13 +64,13 @@ def racine(arbre):
     précondition : que arbre ne soit pas vide
     
     TESTS :
-    >>> est_feuille(arbre)
+    >>> racine(arbre)
     2
     
-    >>> est_feuille(arbre_vide)
+    >>> racine(arbre_vide)
     False
     
-    >>> est_feuille(arbre_feuille)
+    >>> racine(arbre_feuille)
     1
     '''
     assert not est_vide(arbre), "votre arbre est vide"
@@ -87,20 +87,20 @@ def SAG(arbre):
     précondition : A compléter
     
     TESTS :
-    >>> est_feuille(arbre)
-    False
+    >>> SAG(arbre)
     
-    >>> est_feuille(arbre_vide)
-    False
     
-    >>> est_feuille(arbre_feuille)
-    True
+    >>> SAG(arbre_vide)
+    
+    
+    >>> SAG(arbre_feuille)
+    
     '''
+
+    assert not est_vide(arbre[1]), " le sous arbre gauche est vide" # A compléter
+    # Code de la fonction à compléter
     return arbre[1]
     # Vérification de la précondition (voir énoncé : remarques importantes sur le travail)
-    assert ..., " " # A compléter
-    # Code de la fonction à compléter
-
 def SAD(arbre):
     '''
     DOCUMENTATION :
@@ -112,7 +112,7 @@ def SAD(arbre):
     TESTS :
     '''
     # Vérification de la précondition (voir énoncé : remarques importantes sur le travail) 
-    assert ..., " " # A compléter
+    assert not es_vide(arbre[2]), " le sous arbre droit est vide" # A compléter
     # Code de la fonction à compléter
     return arbre[2]
 def taille(arbre):
