@@ -6,7 +6,7 @@ from random import randint
 arbre = [2, [8, [6, [], []], [9, [], []]], [1, [7, [], []], []]]
 show(arbre,"arbre")
 arbre_vide = []
-arbre_feuille  = [1,[],[]]
+arbre_feuille  = [1,[[],[]]]
 # PARTIE 1 - TRAVAIL PRELIMINAIRE Question 3
     # Insérer votre code ici
 
@@ -28,9 +28,9 @@ def est_vide(arbre):
     True
     
     >>> est_vide(arbre_feuille)
-    True
+    False
     '''
-    return arbre[0] == []
+    return arbre == []
 
 def est_feuille(arbre):
     '''
@@ -47,8 +47,10 @@ def est_feuille(arbre):
     False
     
     >>> est_feuille(arbre_feuille)
-    True
+    False 
     '''
+    # 50 est = à true mais sag et sad pas fait
+    
     # A compléter
     return SAG == [] and SAD == []
         
