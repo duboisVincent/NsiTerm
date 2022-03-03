@@ -53,7 +53,9 @@ class Arbre:
         >>> arbrevide.est_feuille()
         False
         '''
-        if self.racine.gauche == None and self.racine.droit == None:
+        if self.est_vide() :
+            return False
+        elif self.racine.gauche == None and self.racine.droit == None:
             return True
         else:
             return False
@@ -67,6 +69,7 @@ class Arbre:
         précondition : A compléter
         
         TESTS :
+        
         '''
         # Vérification de la précondition (voir énoncé : remarques importantes sur le travail)
         assert self.est_vide, "Un arbre vide n'a pas de racine" # A compléter
@@ -81,10 +84,17 @@ class Arbre:
         précondition : A compléter
         
         TESTS :
+        >>> affiche(arbre.SAG())
+        (8, 6, 9)
+        
+        >>> affiche(arbrefeuille.SAG())
+        ( )
+        
         '''
         # Vérification de la précondition (voir énoncé : remarques importantes sur le travail)
-        assert self.est_vide, " " # A compléter
+        assert not self.est_vide(), "un arbre vide n'as pas de sous-arbre-gauche" # A compléter
         # Code de la fonction à compléter
+        return Arbre(self.racine.gauche)
     
     def SAD(self):
         '''
@@ -94,10 +104,16 @@ class Arbre:
         précondition : A compléter
         
         TESTS :
+        >>> affiche(arbre.SAD())
+        (1, 7)
+        
+        >>> affiche(arbrefeuille.SAD())
+        ( )
         '''
         # Vérification de la précondition (voir énoncé : remarques importantes sur le travail)
-        assert ..., " " # A compléter
+        assert not self.est_vide(), "un arbre vide n'as pas de sous-arbre-droit" # A compléter
         # Code de la fonction à compléter
+        return Arbre(self.racine.droit)
     
     def taille(self):
         '''
@@ -106,9 +122,19 @@ class Arbre:
         return (int) : Taille de l'arbre
         
         TESTS :
+        >>> arbre.taille()
+        6
+        
+        >>> arbrefeuille.taille()
+        1
+        
+        >>> arbrevide.taille()
+        0
         '''
-        #A compléter
-
+        if self.est_vide():
+            return 0
+        return 1 + Arbre(self.racine).SAG().taille() + Arbre(self.racine).SAD().taille()
+        
     def hauteur(self):
         '''
         DOCUMENTATION :
@@ -173,11 +199,12 @@ if __name__ == '__main__':
 
 
     # PARTIE 1 - TRAVAIL PRELIMINAIRE Question 3
-    noeud = Noeud(2, Noeud(8, Noeud(6, None, None), Noeud(9, None, None)), Noeud(1, Noeud(7, None, None), None))
+    noeud = Noeud(3, Noeud(8, Noeud(6, None, None), Noeud(9, None, None)), Noeud(1, Noeud(7, None, None), None))
     arbre = Arbre(noeud)
     noeudfeuille = Noeud(2,None,None)
     arbrefeuille = Arbre(noeudfeuille)
     arbrevide = Arbre()
+    arbrevideBIS = Arbre()
     # PARTIE 2 - Question 3
         
     # Creation d'un arbre complet de hauteur 3
